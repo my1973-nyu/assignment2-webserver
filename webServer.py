@@ -36,7 +36,7 @@ def webServer(port=13331):
               
       #Content-Type is an example on how to send a header as bytes. There are more!
       
-      outputdata = b"HTTP/1.0 200 OK\r\nServer: Apache/2.4.30\r\nContent-Type: text/html; charset=UTF-8\r\n\r\n"
+      outputdata = b"HTTP/1.0 200 OK\r\nServer: Apache/2.4.30\r\nConnection: close\r\nContent-Type: text/html; charset=UTF-8\r\n\r\n"
 
       #Note that a complete header must end with a blank line, creating the four-byte sequence "\r\n\r\n" Refer to https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/TCPSockets.html
  
@@ -64,7 +64,7 @@ def webServer(port=13331):
       # Remember the format you used in the try: block!
       #Fill in start
       # print(e)
-      errordata = b"HTTP/1.0 404 Not Found\r\nServer: Apache/2.4.30\r\nContent-Type: text/html; charset=UTF-8\r\n\r\n"
+      errordata = b"HTTP/1.0 404 Not Found\r\nServer: Apache/2.4.30\r\nConnection: close\r\nContent-Type: text/html; charset=UTF-8\r\n\r\n"
       connectionSocket.sendall(errordata)
 
       #Fill in end
